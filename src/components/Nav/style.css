@@ -1,0 +1,121 @@
+/* General container for the nav */
+.nav-container {
+  position: fixed;
+  width: 100%;
+  height: 100px;  /* Adjust height as per your design */
+  overflow: hidden;  /* Keeps content inside the box */
+  top: 30;  /* Keeps it fixed to the top */
+  left: 0;
+  z-index: 10;  /* Ensures nav stays on top */
+}
+
+/* The fixed position nav inside the box */
+.nav-box {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);  /* Center the nav */
+  width: 90%;  /* Adjust width to be slightly less than 100% */
+  max-width: 1200px;  /* Max width for large screens */
+  padding: 10px 20px;
+  background-color: #111;  /* Background color of the navbar */
+  border-radius: 30px;  /* Make border more rounded */
+  z-index: 10;  /* Ensures the nav stays on top */
+}
+
+/* The content of the nav */
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Container for the search button and menu icon */
+.search__container,
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+/* Links styles */
+.links {
+  display: flex;
+  gap: 1.7rem;
+}
+
+.links a {
+  font-size: 0.87rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: white;
+  padding: 0.6rem 1rem;  /* Adjust padding for a more compact look */
+}
+
+.links a.active {
+  color: var(--color-blue-primary);
+}
+
+.links__button {
+  order: 5;
+}
+
+/* =============== MOBILE ONLY BUTTON ================ */
+.hide__button {
+  display: none; /* Hidden by default on larger screens */
+}
+
+/* Display the button only on mobile */
+@media screen and (max-width: 1024px) {
+  .hide__button {
+    display: block; /* Show button on mobile */
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  .hide__links {
+    display: none;
+  }
+
+  .hide__button.active + .links {
+    display: block;
+  }
+
+  /* Links section on mobile view */
+  .links {
+    flex-direction: column;
+    position: fixed;
+    z-index: 11;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: var(--color-blue-primary);
+    gap: 0;
+    padding-top: 3rem;
+    display: none; /* Hidden by default */
+  }
+
+  .links a {
+    display: block;
+    padding: 1rem 5rem;
+    color: white;
+  }
+
+  .links a:hover {
+    background: var(--color-violet);
+    color: white !important;
+  }
+
+  .links a.active {
+    color: var(--color-violet);
+  }
+}
+
+/* ================ SMALL DEVICES (PHONE) ============= */
+@media screen and (max-width: 600px) {
+  /* Any further tweaks specific to phone sizes */
+}
